@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { Plus, Flame } from 'lucide-react';
 import {Button } from '../../app/components/Button/index';
+import {Input } from '../../app/components/Input/index';
+
 
 
 interface AddActivityFormProps {
@@ -43,7 +45,7 @@ export function AddActivityForm({ onAddActivity }: AddActivityFormProps) {
           <label className="block text-sm font-medium text-gray-700 mb-1">
             Nome da Atividade
           </label>
-          <input
+          <Input
             type="text"
             value={activityName}
             onChange={(e) => setActivityName(e.target.value)}
@@ -56,7 +58,7 @@ export function AddActivityForm({ onAddActivity }: AddActivityFormProps) {
           <label className="block text-sm font-medium text-gray-700 mb-1">
             Calorias Gastas (kcal)
           </label>
-          <input
+          <Input
             type="number"
             value={calories}
             onChange={(e) => setCalories(e.target.value)}

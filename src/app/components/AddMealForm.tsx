@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { Plus, Utensils } from 'lucide-react';
 import {Button } from '../../app/components/Button/index';
+import {Input } from '../../app/components/Input/index';
+
 
 
 interface AddMealFormProps {
@@ -43,7 +45,7 @@ export function AddMealForm({ onAddMeal }: AddMealFormProps) {
           <label className="block text-sm font-medium text-gray-700 mb-1">
             Nome da Refeição
           </label>
-          <input
+          <Input
             type="text"
             value={mealName}
             onChange={(e) => setMealName(e.target.value)}
@@ -56,7 +58,7 @@ export function AddMealForm({ onAddMeal }: AddMealFormProps) {
           <label className="block text-sm font-medium text-gray-700 mb-1">
             Calorias (kcal)
           </label>
-          <input
+          <Input
             type="number"
             value={calories}
             onChange={(e) => setCalories(e.target.value)}
