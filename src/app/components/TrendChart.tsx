@@ -1,4 +1,5 @@
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, ReferenceLine } from 'recharts';
+import Chart from 'chart.js/auto'
 
 interface DayData {
   day: string;
@@ -18,7 +19,7 @@ const getDayOfWeek = (): string => {
 };
 
 export function TrendChart({ data }: TrendChartProps) {
-  const currentDay = getDayOfWeek();
+    const currentDay = getDayOfWeek();
   
   return (
     <div className="bg-white rounded-xl shadow-lg p-6">
@@ -85,7 +86,7 @@ export function TrendChart({ data }: TrendChartProps) {
             strokeDasharray="5 5"
             label={{ value: 'Meta: -500 kcal', position: 'right', fill: '#22c55e', fontSize: 12 }}
           />
-          
+
           <Line 
             type="monotone" 
             dataKey="balance" 

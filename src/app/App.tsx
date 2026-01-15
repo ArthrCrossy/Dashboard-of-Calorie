@@ -5,6 +5,7 @@ import { AddMealForm } from './components/AddMealForm';
 import { AddActivityForm } from './components/AddActivityForm';
 import { TrendChart } from './components/TrendChart';
 import { Activity, Apple, TrendingDown, Target } from 'lucide-react';
+import ChartExample from "./WeekChart";
 
 interface DayData {
   day: string;
@@ -23,6 +24,7 @@ export default function App() {
     { day: 'Sáb', consumed: 2300, burned: 1900, balance: 400 },
     { day: 'Dom', consumed: 1900, burned: 2000, balance: -100 },
   ]);
+
 
   const [todayConsumed, setTodayConsumed] = useState(1900);
   const [todayBurned, setTodayBurned] = useState(2000);
@@ -98,8 +100,22 @@ export default function App() {
             <AddActivityForm onAddActivity={handleAddActivity} />
           </div>
         </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+              {/* Gráfico em destaque */}
+              <div className="lg:col-span-2 order-first">
+                  <h1>OIIIIIIIIIIIIIIIIIIIIIIIIIIIII</h1>
+                  <ChartExample />
+              </div>
 
-        {/* Gráfico de Tendência */}
+              <CalorieCard title={""} value={0} icon={undefined} color={"blue"} subtitle={""} />
+              <CalorieCard title={""} value={0} icon={undefined} color={"blue"} subtitle={""} />
+              <CalorieCard title={""} value={0} icon={undefined} color={"blue"} subtitle={""} />
+              <CalorieCard title={""} value={0} icon={undefined} color={"blue"} subtitle={""} />
+
+          </div>
+
+
+          {/* Gráfico de Tendência */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           <div className="lg:col-span-2">
             <TrendChart data={weekData} />
@@ -126,7 +142,6 @@ export default function App() {
                   {avgBalance > 0 ? '+' : ''}{avgBalance} kcal
                 </p>
               </div>
-              
               <div className="pt-2">
                 <div className="bg-gradient-to-r from-green-50 to-emerald-50 rounded-lg p-4 border border-green-200">
                   <p className="text-sm font-medium text-green-800 mb-2">💡 Dica de Emagrecimento</p>
@@ -138,6 +153,7 @@ export default function App() {
                       : 'Atenção! Você está consumindo mais do que gasta. Ajuste sua dieta ou aumente exercícios.'}
                   </p>
                 </div>
+
               </div>
             </div>
           </div>
